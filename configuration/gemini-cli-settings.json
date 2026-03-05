@@ -1,0 +1,105 @@
+  "mcpServers": {
+    "developer-knowledge-mcp": {
+      "httpUrl": "https://developerknowledge.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "YOUR_DEVELOPER_KNOWLEDGE_API_KEY"
+      }
+    },
+    "maps-grounding-lite-mcp": {
+      "httpUrl": "https://mapstools.googleapis.com/mcp",
+      "headers": {
+        "X-Goog-Api-Key": "YOUR_GOOGLE_MAPS_API_KEY"
+      }
+    },
+    "cloud-sql-mcp": {
+      "httpUrl": "https://sqladmin.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "x-goog-user-project": "YOUR_GCP_PROJECT_ID"
+      }
+    },
+    "bigquery-mcp": {
+      "httpUrl": "https://bigquery.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "x-goog-user-project": "YOUR_GCP_PROJECT_ID"
+      }
+    },	
+    "compute-engine-mcp": {
+      "httpUrl": "https://compute.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "x-goog-user-project": "YOUR_GCP_PROJECT_ID"
+      }
+    },
+    "logging-mcp": {
+      "httpUrl": "https://logging.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/logging.read"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "x-goog-user-project": "YOUR_GCP_PROJECT_ID"
+      }
+    },
+    "monitoring-mcp": {
+      "httpUrl": "https://monitoring.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "x-goog-user-project": "YOUR_GCP_PROJECT_ID"
+      }
+    },
+    "firestore-mcp": {
+      "httpUrl": "https://firestore.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform.read-only"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "x-goog-user-project": "YOUR_GCP_PROJECT_ID"
+      }
+    },
+    "gke-mcp": {
+      "httpUrl": "https://container.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "x-goog-user-project": "YOUR_GCP_PROJECT_ID"
+      }
+    }
+  }
