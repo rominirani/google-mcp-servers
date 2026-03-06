@@ -27,12 +27,7 @@ Google MCP Servers are fully-managed, remote servers that expose Google Cloud an
 │   ├── setup_scenario_5.py          # Setup data for Scenario 5
 │   ├── setup_scenario_6.py          # Setup data for Scenario 6
 │   └── setup_scenario_7.py          # Setup data for Scenario 7
-├── infographics/
-│   ├── README.md                    # Overview of infographics
-│   ├── FirestoreMCPServer.jpg       # Infographic: Firestore MCP Server
-│   ├── FirestoreMCPServer2.jpg      # Infographic: Firestore MCP Server (part 2)
-│   ├── GoogleMCPServersSecurity.jpg # Infographic: Google MCP Servers Security
-│   └── StepByStepGuidetoGoogleMCPServers-March1-2026.png  # Step-by-step guide infographic
+├── infographics/                    # Several infographics that you can use
 └── prompts/
     └── getting-started.md           # 10 sample prompts across Google Cloud services
 ```
