@@ -94,7 +94,7 @@ To use these MCP servers in the Gemini CLI, you must add them to your `settings.
 
 **File Location**: `~/.gemini/settings.json` (Global) or `.gemini/settings.json` (Project-local).
 
-#### Option A: Manual JSON Configuration (Recommended)
+#### Manual JSON Configuration (Recommended)
 
 Add the following to the `mcpServers` block in your `settings.json`. Replace `YOUR_PROJECT_ID` with your actual project ID.
 
@@ -133,12 +133,8 @@ Add the following to the `mcpServers` block in your `settings.json`. Replace `YO
     },
     "google-maps": {
       "httpUrl": "https://mapstools.googleapis.com/mcp",
-      "authProviderType": "google_credentials",
-      "oauth": {
-        "scopes": ["https://www.googleapis.com/auth/cloud-platform"]
-      },
       "headers": {
-        "X-goog-user-project": "YOUR_PROJECT_ID"
+        "X-Goog-Api-Key": "YOUR_GOOGLE_MAPS_API_KEY"
       }
     },
     "google-developer-knowledge": {
@@ -150,20 +146,6 @@ Add the following to the `mcpServers` block in your `settings.json`. Replace `YO
   }
 }
 ```
-
-#### Option B: Using Gemini CLI Command
-
-You can also add them individually using the CLI:
-
-```bash
-gemini mcp add google-firestore https://firestore.googleapis.com/mcp
-gemini mcp add google-bigquery https://bigquery.googleapis.com/mcp
-gemini mcp add google-logging https://logging.googleapis.com/mcp
-gemini mcp add google-maps https://mapstools.googleapis.com/mcp
-gemini mcp add -H "X-Goog-Api-Key: YOUR_API_KEY" google-developer-knowledge https://developerknowledge.googleapis.com/mcp
-```
-
-*Note: After using `gemini mcp add`, you may still need to manually edit `settings.json` to add `authProviderType` and `headers` if not prompted.*
 
 #### Verify Configuration
 
