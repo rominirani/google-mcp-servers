@@ -174,8 +174,10 @@ Start a Gemini session and use slash commands to verify your tools and MCP serve
 
 - **Setup**:
 
+  This setup script injects 5 synthetic `ERROR` log entries into Cloud Logging under the log name `checkout-service-logs`. Each log entry uses a JSON payload that includes fields like `status`, `service`, `error`, and a unique `transaction_id` (e.g. `tx-991` .. `tx-995`). This gives the scenario something real to query and triage.
+
   ```bash
-  # Run the injection script
+  # Run the injection script (writes logs via `gcloud logging write`)
   ./scenario_1.sh
   ```
 
@@ -187,6 +189,11 @@ Start a Gemini session and use slash commands to verify your tools and MCP serve
 **Use Case**: Retrieve client metadata from Firestore, query API usage from BigQuery, and summarize for a renewal call.
 
 - **Setup**:
+
+  This setup script creates the seed data needed for the demo across Firestore and BigQuery:
+
+  - **Firestore**: creates/overwrites `clients/acme_corp` with `client_name`, `tenant_id` (`TENANT_994`), and `tier`.
+  - **BigQuery**: creates the dataset `api_metrics` (if needed), creates the table `api_metrics.usage_logs` (if needed) with schema (`tenant_id`, `api_calls`), then inserts a couple of rows for `TENANT_994` to simulate usage.
 
   ```bash
   python3 setup_scenario_2.py
@@ -201,6 +208,10 @@ Start a Gemini session and use slash commands to verify your tools and MCP serve
 
 - **Setup**:
 
+  This setup script seeds Firestore with an active promo campaign document that the agent will read during the scenario:
+
+  - **Firestore**: creates/overwrites `campaigns/spring_promo` with `is_active: true` and promo `code: "SPRING20"`.
+
   ```bash
   python3 setup_scenario_3.py
   ```
@@ -213,6 +224,11 @@ Start a Gemini session and use slash commands to verify your tools and MCP serve
 **Use Case**: Query BigQuery for failed logins from a suspicious IP and search Developer Knowledge for blocking instructions.
 
 - **Setup**:
+
+  This setup script creates a simple BigQuery dataset/table with sample login events so the scenario can query for suspicious activity:
+
+  - **BigQuery**: creates the dataset `security_audit` (if needed) and a table `security_audit.login_events` (if needed) with schema (`ip_address`, `status`).
+  - Inserts a few rows including multiple `FAILED` attempts from `203.0.113.45` and a `SUCCESS` event from a different IP.
 
   ```bash
   python3 setup_scenario_4.py
@@ -227,6 +243,11 @@ Start a Gemini session and use slash commands to verify your tools and MCP serve
 
 - **Setup**:
 
+  This setup script creates a BigQuery dataset/table with example page-load latency metrics for two architectures so the agent can compare averages:
+
+  - **BigQuery**: creates the dataset `app_performance` (if needed) and a table `app_performance.page_loads` (if needed) with schema (`architecture`, `latency_ms`).
+  - Inserts rows for both `legacy` and `firestore_v2`, with intentionally higher latencies for `firestore_v2` to simulate a performance regression.
+
   ```bash
   python3 setup_scenario_5.py
   ```
@@ -240,6 +261,12 @@ Start a Gemini session and use slash commands to verify your tools and MCP serve
 
 - **Setup**:
 
+  This setup script seeds the two data sources that the agent will combine when calculating the route:
+
+  - **Firestore**: creates/overwrites `deliveries/del_001` with a human-readable destination (`"Coit Tower, San Francisco, CA"`), status, and assigned driver (`driver_88`).
+  - **BigQuery**: creates the dataset `logistics` (if needed) and a table `logistics.driver_telemetry` (if needed) with schema (`driver_id`, `lat`, `lng`, `timestamp`).
+  - Inserts a single telemetry point for `driver_88` (lat/lng near San Francisco) with timestamp `2026-03-05T10:00:00Z`.
+
   ```bash
   python3 setup_scenario_6.py
   ```
@@ -252,6 +279,12 @@ Start a Gemini session and use slash commands to verify your tools and MCP serve
 **Use Case**: Evaluate a proposed cafe location by checking neighborhood foot traffic in BigQuery and scouting competition nearby using Maps.
 
 - **Setup**:
+
+  This setup script creates sample data in Firestore and BigQuery that the agent will use to evaluate the proposed location:
+
+  - **Firestore**: creates/overwrites `proposed_locations/loc_alpha` with an address, neighborhood (`"Mission Bay"`), and square footage.
+  - **BigQuery**: creates the dataset `retail_analytics` (if needed) and a table `retail_analytics.neighborhood_metrics` (if needed) with schema (`neighborhood`, `foot_traffic_score`).
+  - Inserts a single metrics row for `Mission Bay` with `foot_traffic_score: 85`.
 
   ```bash
   python3 setup_scenario_7.py
