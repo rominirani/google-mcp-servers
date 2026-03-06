@@ -27,6 +27,12 @@ Google MCP Servers are fully-managed, remote servers that expose Google Cloud an
 │   ├── setup_scenario_5.py          # Setup data for Scenario 5
 │   ├── setup_scenario_6.py          # Setup data for Scenario 6
 │   └── setup_scenario_7.py          # Setup data for Scenario 7
+├── infographics/
+│   ├── README.md                    # Overview of infographics
+│   ├── FirestoreMCPServer.jpg       # Infographic: Firestore MCP Server
+│   ├── FirestoreMCPServer2.jpg      # Infographic: Firestore MCP Server (part 2)
+│   ├── GoogleMCPServersSecurity.jpg # Infographic: Google MCP Servers Security
+│   └── StepByStepGuidetoGoogleMCPServers-March1-2026.png  # Step-by-step guide infographic
 └── prompts/
     └── getting-started.md           # 10 sample prompts across Google Cloud services
 ```
@@ -106,6 +112,19 @@ The [`demos/`](demos/) folder contains a set of end-to-end scenarios that showca
 | 7 | **Retail Expansion Analysis** | Firestore, BigQuery, Google Maps |
 
 See the full setup guide and prompt catalog in [`demos/README.md`](demos/README.md).
+
+---
+
+## Infographics
+
+The [`infographics/`](infographics/) folder contains visual guides and infographics covering a range of features around Google MCP Servers. These infographics have been primarily generated using NotebookLM.
+
+| File | Description |
+|---|---|
+| [`FirestoreMCPServer.jpg`](infographics/FirestoreMCPServer.jpg) | Infographic on using the Firestore MCP Server |
+| [`FirestoreMCPServer2.jpg`](infographics/FirestoreMCPServer2.jpg) | Infographic on using the Firestore MCP Server (part 2) |
+| [`GoogleMCPServersSecurity.jpg`](infographics/GoogleMCPServersSecurity.jpg) | Infographic on Google MCP Servers security |
+| [`StepByStepGuidetoGoogleMCPServers-March1-2026.png`](infographics/StepByStepGuidetoGoogleMCPServers-March1-2026.png) | Step-by-step visual guide to getting started with Google MCP Servers |
 
 ---
 
